@@ -5,17 +5,33 @@ article {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
+  background-color: lightgray;
+
 }
 
 article:hover{
   box-shadow: 6px 6px #4057a189;
   color: black;
   transition-duration: 0.3s;
+  background-color: transparent;
 }
 
 article:hover #handle {
   visibility: visible;
   font-weight: 400; 
+}
+
+article:hover .content {
+  color: black;
+  text-shadow: none;
+}
+
+article img {
+  height: 50px;
+  width: 50px;
+  align-self: center;
+  margin-right: 10px;
 }
 
 article header {
@@ -30,6 +46,8 @@ article header {
   width: 90%;
   margin: auto;
   border-bottom: solid 5px;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  color: transparent;
   /* font-weight: bold; */
 }
 
