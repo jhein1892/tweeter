@@ -1,0 +1,50 @@
+article {
+  width: 60%;
+  margin: auto;
+  border: solid 5px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+article:hover{
+  box-shadow: 5px 5px #4056A1;
+  font-weight: bold;
+}
+
+article:hover #handle {
+  visibility: visible;
+  font-weight: 400;
+}
+
+article header {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.content {
+  width: 90%;
+  margin: auto;
+  border-bottom: solid 5px;
+  /* font-weight: bold; */
+}
+
+article footer {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.identity {
+  display: flex;
+}
+
+#handle {
+  color: #4056A1 ;
+  visibility: hidden;
+}

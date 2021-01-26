@@ -31,4 +31,7 @@ div button {
   border-bottom: solid black 3px;
   outline: none;
   height: 34px;
+  resize: none;
+  overflow: auto;
+  
 }

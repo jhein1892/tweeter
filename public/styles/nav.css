@@ -3,7 +3,8 @@ nav {
   color: #FFFF;
   height: 120px;
   max-width: "viewport";
-  padding: 1.5em
+  padding: 1.5em;
+  position: sticky; top: 0;
 }
 
 nav span {
