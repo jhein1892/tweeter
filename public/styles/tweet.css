@@ -8,13 +8,14 @@ article {
 }
 
 article:hover{
-  box-shadow: 5px 5px #4056A1;
-  font-weight: bold;
+  box-shadow: 6px 6px #4057a189;
+  color: black;
+  transition-duration: 0.3s;
 }
 
 article:hover #handle {
   visibility: visible;
-  font-weight: 400;
+  font-weight: 400; 
 }
 
 article header {
