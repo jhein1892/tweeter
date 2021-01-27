@@ -41,7 +41,7 @@ article header {
   width: 90%;
   margin: auto;
   border-bottom: solid 5px;
-  /* font-weight: bold; */
+  overflow-wrap: break-word;
 }
 
 article footer {
