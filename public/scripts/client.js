@@ -21,47 +21,71 @@ const createTweetElement = function (data) {
       <p>some options shit</p>  
     </footer>
   </article>`;
-    return markup; 
+  return markup;
 }
 
 
-$(document).ready( () => {
+$(document).ready(() => {
 
   const renderTweets = function (tweets) {
     let output = []
-    for (let tweet in tweets){
+    for (let tweet in tweets) {
+
       output.push(createTweetElement(tweets[tweet]));
     };
-  return output; 
+    return output;
   }
 
-  $(".submit-tweet").submit(function(event) { 
+  $(".submit-tweet").submit(function (event) {
     event.preventDefault();
-    const $queryString = $(this).serialize();
-    const value = $(this.children[0]).val()
-    console.log('Am I here?')
-    console.log(value.length)
-    if (!value){
-      alert('You need to fill this out')
-    } else if (value.length > 140){
-      alert('This is too long!')
-    } else {
-    $.post("/tweets", $queryString, function(response) {
+    //creating the proper formatting for new tweet
+    const renderRecentTweet = function (tweet) {
+      $(".submit-tweet").prepend(createTweetElement(tweet))
+    }
+    // loading the most recent tweet
+    const loadRecentTweet = function() {
+      $.ajax({
+        url: '/tweets',
+        method: 'GET'
+      })
+      .done((data) => {
+        renderRecentTweet(data[data.length -1]);
+      })
+      .fail(error => console.log(error));
+    }
+  
+  const $queryString = $(this).serialize();
+  const value = $(this.children[0]).val()
+  if (!value) {
+    alert('You need to fill this out')
+  } else if (value.length > 140) {
+    alert('This is too long!')
+  } else {
+    $.post("/tweets", $queryString, function (response) {
       console.log('Working')
+    }).done(() => {
+      loadRecentTweet()
+    }).fail(error => {
+      console.log(error)
     })
-  }
-  });
 
-  const loadtweets = function(){
-    $.get("/tweets", 'string', function(response) {
-      let myTweets = renderTweets(response); 
-    $.get('/tweets', myTweets, function() {
+  
+  };
+  
+})
+const loadtweets = function () {
+  $.get("/tweets", 'string', function (response) {
+    let myTweets = renderTweets(response);
+    $.get('/tweets', myTweets, function () {
       $('#container').append(myTweets)
     })
   })
 }
-loadtweets()
+loadtweets()    
+
 })
+
+
 
 
 // const $tweet = createTweetElement(tweetData) 
