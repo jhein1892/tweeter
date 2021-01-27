@@ -38,9 +38,18 @@ $(document).ready( () => {
   $(".submit-tweet").submit(function(event) { 
     event.preventDefault();
     const $queryString = $(this).serialize();
+    const value = $(this.children[0]).val()
+    console.log('Am I here?')
+    console.log(value.length)
+    if (!value){
+      alert('You need to fill this out')
+    } else if (value.length > 140){
+      alert('This is too long!')
+    } else {
     $.post("/tweets", $queryString, function(response) {
       console.log('Working')
     })
+  }
   });
 
   const loadtweets = function(){

@@ -1,8 +1,7 @@
 $(document).ready(() => {
-  
-  $(".submit-tweet").on('keyup',function() { 
+  let num = $(".counter").val();
+  $(".submit-tweet").on('keyup',function() {
     let counter = $(this.children[1].children[1])
-    let num = counter.val()
     let string = $(this.children[0]).val()
     let count = num - string.length; 
     counter.val(count) 
