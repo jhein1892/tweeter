@@ -4,6 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const createTweetElement = function (data) {
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
   const markup =
     `<article>
     <header>
@@ -14,7 +19,7 @@ const createTweetElement = function (data) {
       <p id="handle">${data.user.handle}</p>
     </header>
     <div class="content">
-    <p>${data.content.text}</p> 
+    <p>${escape(data.content.text)}</p> 
   </div>
     <footer>
       <p>${Date(data.content.created_at)}</p>
@@ -64,6 +69,8 @@ $(document).ready(() => {
     $.post("/tweets", $queryString, function (response) {
       console.log('Working')
     }).done(() => {
+      $("#tweet-text").val("")
+      $(".counter").val(140);
       loadRecentTweet()
     }).fail(error => {
       console.log(error)
