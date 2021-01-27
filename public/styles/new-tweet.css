@@ -18,7 +18,7 @@ form div {
   justify-content: space-between;
 }
 
-.submit-tweet {
+form button {
   color: white;
   background-color: #4056A1;
 }
