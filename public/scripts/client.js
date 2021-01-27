@@ -37,7 +37,6 @@ return output;
 }
 
 const createTweetElement = function (data) {
-  console.log(data.content.text)
   const markup =
     `<article>
     <header>
@@ -59,9 +58,20 @@ const createTweetElement = function (data) {
 }
 
 const $tweet = renderTweets(tweetData)
-console.log($tweet)
-$(document).ready(() => {
-  $('#container').append($tweet); 
-});
+$(document).ready( () => {
+  $('#container').append($tweet);
 
-// const $tweet = createTweetElement(tweetData)
+  $(".submit-tweet").submit(function(event) { 
+    event.preventDefault();
+    const $queryString = $(this).serialize();
+    console.log($queryString);
+    $.post("/tweets", $queryString, function(response) {
+      console.log('Working')
+    })
+    // $.ajax('/tweets', queryString,{method: 'POST'})
+    // })
+  });
+})
+
+
+// const $tweet = createTweetElement(tweetData) 

@@ -22,11 +22,6 @@ article:hover #handle {
   font-weight: 400; 
 }
 
-article:hover .content {
-  color: black;
-  text-shadow: none;
-}
-
 article img {
   height: 50px;
   width: 50px;
@@ -46,8 +41,6 @@ article header {
   width: 90%;
   margin: auto;
   border-bottom: solid 5px;
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
-  color: transparent;
   /* font-weight: bold; */
 }
 
