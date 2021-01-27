@@ -1,15 +1,24 @@
 $(document).ready(() => {
-  let num = $(".counter").val();
-  $("#tweet-text").keyup(() => {
-    let string = $("#tweet-text").val()
-    $(".counter").val(num - string.length)
-    let count = num - string.length;
+  
+  $(".submit-tweet").on('keyup',function() { 
+    let counter = $(this.children[1].children[1])
+    let num = counter.val()
+    let string = $(this.children[0]).val()
+    let count = num - string.length; 
+    counter.val(count) 
+ 
     if (count <= 0){
-      $('.counter').css("color", "red")
+      counter.css("color", "red");
     } else if (count <= 50 && count > 0) {
-      $('.counter').css("color", "#fba607")
+      counter.css("color", "#fba607")
     } else {
-      $('.counter').css("color", "#000645")
+      counter.css("color", "#000645")
     }
   })
 }) 
+
+
+
+
+
+

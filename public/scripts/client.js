@@ -42,12 +42,11 @@ $(document).ready( () => {
       console.log('Working')
     })
   });
-  
+
   const loadtweets = function(){
     $.get("/tweets", 'string', function(response) {
-       let myTweets = renderTweets(response); 
+      let myTweets = renderTweets(response); 
     $.get('/tweets', myTweets, function() {
-      console.log("Will it work?")
       $('#container').append(myTweets)
     })
   })
