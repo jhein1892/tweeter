@@ -31,7 +31,6 @@ const createTweetElement = function (data) {
   
 
 $(document).ready(() => {
-
   const renderTweets = function (tweets) {
     let output = []
     for (let tweet in tweets) {
@@ -40,7 +39,6 @@ $(document).ready(() => {
     };
     return output;
   }
-
   $(".submit-tweet").submit(function (event) {
     event.preventDefault();
     //creating the proper formatting for new tweet
@@ -92,6 +90,15 @@ const loadtweets = function () {
   })
 }
 loadtweets()    
+
+  $(".write").on('click', function() {
+    $('.new-tweet').slideToggle('fast')
+  })
+  $(".write").hover(function() {
+    $('.write-info').css('color', 'black')
+  }, function(){
+    $('.write-info').css('color', 'white')
+  })
 
 })
 

@@ -20,6 +20,8 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+  
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -29,7 +31,13 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span id='logo'>tweeter</span>
+      
+      <div class='write'>
+      <span class="write-info"><strong>Write</strong> a new Tweet</span>
+      <i class="fas fa-angle-double-down"></i>
+    </div>
+  
     </nav>
     <header class="top-header">
       <div>
@@ -46,7 +54,6 @@
         <div class='error'></div>
         <p id='errorTooLong'>&#9888; Dude. Abide by our Character Limit please &#9888;</p>
         <p id='errorTooShort'>&#9888; You can't just Tweet nothing. &#9888;</p>
-        <h2>Compose Tweet</h2>
         <form class="submit-tweet" method="POST" action="/tweets">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div>

@@ -4,10 +4,40 @@ nav {
   height: 120px;
   padding: 1.5em;
   position: sticky; top:0;
+  display: flex;
+  justify-content: space-between;
 }
  
-nav span {
+#logo {
   font-family: 'Bungee', cursive; 
 }
- 
+
+.write {
+  display: flex;
+  flex-direction: column;
+}
+
+.write:hover {
+
+
+  }
+
+
+.fas{
+  margin-top: 5px;
+  color: red;
+  align-self: center;
+}
+
+@keyframes bounce {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(10px);}
+} 
+
+.fas{
+  animation: bounce .5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite
+}
+
    
