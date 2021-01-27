@@ -28,7 +28,7 @@ const createTweetElement = function (data) {
   </article>`;
   return markup;
 }
-
+  
 
 $(document).ready(() => {
 
@@ -61,17 +61,20 @@ $(document).ready(() => {
   
   const $queryString = $(this).serialize();
   const value = $(this.children[0]).val()
-  if (!value) {
-    alert('You need to fill this out')
+  $('#errorTooShort').hide()
+  $('#errorTooLong').hide()
+  if (value.length <= 0) {
+    console.log('here')
+    $('#errorTooShort').slideDown('fast')  
   } else if (value.length > 140) {
-    alert('This is too long!')
+    $('#errorTooLong').slideDown('fast')
   } else {
     $.post("/tweets", $queryString, function (response) {
       console.log('Working')
     }).done(() => {
       $("#tweet-text").val("")
       $(".counter").val(140);
-      loadRecentTweet()
+      loadRecentTweet() 
     }).fail(error => {
       console.log(error)
     })

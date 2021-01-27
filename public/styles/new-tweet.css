@@ -35,3 +35,18 @@ form button {
   overflow: auto;
   
 }
+
+
+#errorTooLong {
+  color: red;
+  display: none;
+  border: solid red 5px ;
+  padding: 5px 0;
+}
+
+#errorTooShort {
+  color: red;
+  display: none;
+  border: solid red 5px ;
+  padding: 5px 0;
+}
