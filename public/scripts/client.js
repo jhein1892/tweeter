@@ -100,6 +100,24 @@ loadtweets()
     $('.write-info').css('color', 'white')
   })
 
+  $(function () {
+    $("#scrollUp").hide();
+    $(window).scroll(function(){
+      let size  = $(window).scrollTop();
+      console.log(size)
+      if (size >= 100){
+        $("#scrollUp").show()
+      } else {
+        $("#scrollUp").hide();
+      }
+    })
+  })
+  $("#scrollUp").click(function() {
+    $(window).scrollTop(0);
+    $('.new-tweet').slideDown('fast')
+  })
+
+
 })
 
 

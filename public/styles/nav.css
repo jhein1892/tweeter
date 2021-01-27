@@ -17,13 +17,8 @@ nav {
   flex-direction: column;
 }
 
-.write:hover {
 
-
-  }
-
-
-.fas{
+#arrow{
   margin-top: 5px;
   color: red;
   align-self: center;
@@ -34,7 +29,7 @@ nav {
   100% {transform: translateY(10px);}
 } 
 
-.fas{
+#arrow{
   animation: bounce .5s;
   animation-direction: alternate;
   animation-iteration-count: infinite
