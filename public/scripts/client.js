@@ -40,7 +40,7 @@ $(document).ready(() => {
     event.preventDefault();
     //creating the proper formatting for new tweet
     const renderRecentTweet = function (tweet) {
-      $(".submit-tweet").prepend(createTweetElement(tweet))
+      $(".tweet-feed").prepend(createTweetElement(tweet))
     }
     // loading the most recent tweet
     const loadRecentTweet = function() {
@@ -77,7 +77,7 @@ const loadtweets = function () {
   $.get("/tweets", 'string', function (response) {
     let myTweets = renderTweets(response);
     $.get('/tweets', myTweets, function () {
-      $('#container').append(myTweets)
+      $('.tweet-feed').append(myTweets)
     })
   })
 }
