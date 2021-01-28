@@ -35,7 +35,7 @@ const createTweetElement = function (data) {
   </article>`;
   return markup;
 }
-  
+
 
 $(document).ready(() => {
   const renderTweets = function (tweets) {

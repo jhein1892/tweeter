@@ -3,38 +3,67 @@ nav {
   color: #FFFF;
   height: 120px;
   width: auto;
-  padding: 1.5em 6.5% 1.5em 5%;
-  position: sticky; top:0;
+  padding: 1.5em 6.5% 1.5em 5.5%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
- 
-#logo {
-  font-family: 'Bungee', cursive; 
+nav #logo {
+  font-family: 'Bungee', cursive;
 }
 
-.write {
+nav .write {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-
-#arrow{
+nav #arrow {
   margin-top: 5px;
   color: red;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
 }
 
 @keyframes bounce {
-  0% {transform: translateY(0);}
-  100% {transform: translateY(10px);}
-} 
-
-#arrow{
-  animation: bounce .5s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
 }
 
-   
+nav #arrow {
+  -webkit-animation: bounce .5s;
+          animation: bounce .5s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}

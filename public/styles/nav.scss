@@ -1,0 +1,46 @@
+nav {
+  background-color: #4056A1;
+  color: #FFFF;
+  height: 120px;
+  width: auto;
+  padding: 1.5em 6.5% 1.5em 5.5%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+
+  #logo {
+    font-family: 'Bungee', cursive;
+  }
+
+  .write {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #arrow {
+    margin-top: 5px;
+    color: red;
+    align-self: center;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(10px);
+    }
+  }
+
+  #arrow {
+    animation: bounce .5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite
+  }
+}
+
+
+
+
