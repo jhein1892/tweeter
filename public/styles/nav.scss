@@ -7,8 +7,7 @@ nav {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: space-between;
-  // filter: grayscale(.8);
+  justify-content: space-between; 
 
   #logo {
     font-family: 'Bungee', cursive;
@@ -21,7 +20,7 @@ nav {
 
   #arrow {
     margin-top: 5px;
-    color: red;
+    color: #56A040;
     align-self: center;
   }
 

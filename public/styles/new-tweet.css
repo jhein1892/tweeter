@@ -22,6 +22,7 @@ form div {
 form button {
   color: white;
   background-color: #4056A1;
+  border-radius: 10%;
 }
 
 #tweet-text {
@@ -50,4 +51,8 @@ form button {
   display: none;
   border: solid red 5px ;
   padding: 5px 0;
+}
+
+.new-tweet {
+  display: none;
 }

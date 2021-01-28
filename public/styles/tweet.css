@@ -18,6 +18,14 @@ article:hover{
  
 }
 
+article:hover .icons {
+  visibility: visible;
+}
+
+.icons {
+  visibility: hidden;
+}
+
 article:hover #handle {
   visibility: visible;
   font-weight: 400; 

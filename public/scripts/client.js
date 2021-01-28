@@ -100,6 +100,7 @@ loadtweets()
 
   $(".write").on('click', function() {
     $('.new-tweet').slideToggle('fast')
+    $('#tweet-text').focus();
   })
   $(".write").hover(function() {
     $('.write-info').css('color', 'black')
