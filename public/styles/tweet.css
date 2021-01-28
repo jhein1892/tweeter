@@ -27,8 +27,8 @@ article:hover .icons {
 }
 
 article:hover #handle {
-  visibility: visible;
-  font-weight: 400; 
+  
+  font-weight: 600; 
 }
 
 article img {
@@ -67,7 +67,7 @@ article footer {
 
 #handle {
   color: #4056A1 ;
-  visibility: hidden;
+  
 }
 
 .icons {

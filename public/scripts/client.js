@@ -74,6 +74,7 @@ $(document).ready(() => {
   } else if (value.length > 140) {
     $('#errorTooLong').slideDown('fast')
   } else {
+    $(".counter").css("color", "#000645")
     $.post("/tweets", $queryString, function (response) {
       console.log('Working')
     }).done(() => {

@@ -14,6 +14,7 @@ $(document).ready(() => {
       counter.css("color", "#000645")
     }
   })
+  
 }) 
 
 
