@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const createTweetElement = function (data) {
-  $("abbr.timeago").timeago();
+  $('abbr.timeago').timeago();
   const date = $.timeago(new Date(data.created_at));
   const escape =  function(str) {
     let div = document.createElement('div');
@@ -15,21 +15,21 @@ const createTweetElement = function (data) {
   const markup =
     `<article>
     <header>
-      <div class="identity">
+      <div class='identity'>
       <img src=${data.user.avatars}>
       <p>${data.user.name}</p> 
     </div>
-      <p id="handle">${data.user.handle}</p>
+      <p id='handle'>${data.user.handle}</p>
     </header>
-    <div class="content">
+    <div class='content'>
     <p>${escape(data.content.text)}</p> 
   </div>
     <footer>
       <p>${date}</p>
-      <div class="icons">
-      <i class="fas fa-flag"></i>
-      <i class="fas fa-retweet"></i>
-      <i class="fas fa-heart"></i>  
+      <div class='icons'>
+      <i class='fas fa-flag'></i>
+      <i class='fas fa-retweet'></i>
+      <i class='fas fa-heart'></i>  
       </div>
     </footer>
   </article>`;
@@ -41,16 +41,15 @@ $(document).ready(() => {
   const renderTweets = function (tweets) {
     let output = []
     for (let tweet in tweets) {
-
       output.unshift(createTweetElement(tweets[tweet]));
     };
     return output;
   }
-  $(".submit-tweet").submit(function (event) {
+  $('.submit-tweet').submit(function (event) {
     event.preventDefault();
     //creating the proper formatting for new tweet
     const renderRecentTweet = function (tweet) {
-      $(".tweet-feed").prepend(createTweetElement(tweet))
+      $('.tweet-feed').prepend(createTweetElement(tweet))
     }
     // loading the most recent tweet
     const loadRecentTweet = function() {
@@ -74,12 +73,12 @@ $(document).ready(() => {
   } else if (value.length > 140) {
     $('#errorTooLong').slideDown('fast')
   } else {
-    $(".counter").css("color", "#000645")
-    $.post("/tweets", $queryString, function (response) {
+    $('.counter').css('color', '#000645')
+    $.post('/tweets', $queryString, function (response) {
       console.log('Working')
     }).done(() => {
-      $("#tweet-text").val("")
-      $(".counter").val(140);
+      $('#tweet-text').val('')
+      $('.counter').val(140);
       loadRecentTweet() 
     }).fail(error => {
       console.log(error)
@@ -90,38 +89,38 @@ $(document).ready(() => {
   
 })
 const loadtweets = function () {
-  $.get("/tweets", "string", function (response) {
+  $.get('/tweets', 'string', function (response) {
     let myTweets = renderTweets(response);
-    $.get("/tweets", myTweets, function () {
-      $(".tweet-feed").append(myTweets)
+    $.get('/tweets', myTweets, function () {
+      $('.tweet-feed').append(myTweets)
     })
   })
 }
 loadtweets()    
 
-  $(".write").on('click', function() {
+  $('.write').on('click', function() {
     $('.new-tweet').slideToggle('fast')
     $('#tweet-text').focus();
   })
-  $(".write").hover(function() {
+  $('.write').hover(function() {
     $('.write-info').css('color', 'black')
   }, function(){
     $('.write-info').css('color', 'white')
   })
 
   $(function () {
-    $("#scrollUp").hide();
+    $('#scrollUp').hide();
     $(window).scroll(function(){
       let size  = $(window).scrollTop();
       console.log(size)
       if (size >= 100){
-        $("#scrollUp").show()
+        $('#scrollUp').show()
       } else {
-        $("#scrollUp").hide();
+        $('#scrollUp').hide();
       }
     })
   })
-  $("#scrollUp").click(function() {
+  $('#scrollUp').click(function() {
     $('html, body').animate({scrollTop: 0}, 'slow');
     $('.new-tweet').slideDown('fast');
   $('#tweet-text').focus()
