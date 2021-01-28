@@ -14,7 +14,8 @@ article:hover{
   box-shadow: 6px 6px #4057a189;
   color: black;
   transition-duration: 0.3s;
-  background-color: transparent;
+  background-color: #4057a168;
+ 
 }
 
 article:hover #handle {

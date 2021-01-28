@@ -67,3 +67,46 @@ nav #arrow {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
+
+nav:hover {
+  -webkit-animation: bloom ease-in-out 4s both;
+          animation: bloom ease-in-out 4s both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bloom {
+  0% {
+    background-color: #4056A1;
+  }
+  25% {
+    background-color: #4097a1;
+  }
+  50% {
+    background-color: #40a17f;
+  }
+  75% {
+    background-color: #4097a1;
+  }
+  100% {
+    background-color: #4056A1;
+  }
+}
+
+@keyframes bloom {
+  0% {
+    background-color: #4056A1;
+  }
+  25% {
+    background-color: #4097a1;
+  }
+  50% {
+    background-color: #40a17f;
+  }
+  75% {
+    background-color: #4097a1;
+  }
+  100% {
+    background-color: #4056A1;
+  }
+}

@@ -3,32 +3,33 @@
   nav {
     width: 100%;
   }
-  .allContent{
-    
+  .allContent{ 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     
-  }
+  } 
    .top-header {
      width: 40%;
-     margin: 3% 0 0 5%;
+     margin: 2% 0 0 5%;
+     border-radius: 5%;
    }
 
    #container {
-     
      margin-top: 20px;
-     width: 80%;
-     /* align-self: flex-end;  */
+     width: 70%;
    }
 
    .new-tweet {
-     
      width: 80%;
    }
+    
    article {
     width: 80%;
-    
   }
+   
+}
+
+@media (min-width: 768px) {
 
 }
