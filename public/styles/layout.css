@@ -32,9 +32,10 @@ main {
 #scrollUp {
  position: fixed;
  bottom: 5%;
- right: 5%;
+ right: 1%;
  color: red;
 }
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

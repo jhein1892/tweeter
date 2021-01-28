@@ -4,10 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const createTweetElement = function (data) {
+  $("abbr.timeago").timeago();
+  const date = $.timeago(new Date(data.created_at));
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
+    
   }
   const markup =
     `<article>
@@ -22,8 +25,12 @@ const createTweetElement = function (data) {
     <p>${escape(data.content.text)}</p> 
   </div>
     <footer>
-      <p>${Date(data.content.created_at)}</p>
-      <p>some options shit</p>  
+      <p>${date}</p>
+      <div class="icons">
+      <i class="fas fa-flag"></i>
+      <i class="fas fa-retweet"></i>
+      <i class="fas fa-heart"></i>  
+      </div>
     </footer>
   </article>`;
   return markup;
@@ -35,7 +42,7 @@ $(document).ready(() => {
     let output = []
     for (let tweet in tweets) {
 
-      output.push(createTweetElement(tweets[tweet]));
+      output.unshift(createTweetElement(tweets[tweet]));
     };
     return output;
   }
@@ -82,10 +89,10 @@ $(document).ready(() => {
   
 })
 const loadtweets = function () {
-  $.get("/tweets", 'string', function (response) {
+  $.get("/tweets", "string", function (response) {
     let myTweets = renderTweets(response);
-    $.get('/tweets', myTweets, function () {
-      $('.tweet-feed').append(myTweets)
+    $.get("/tweets", myTweets, function () {
+      $(".tweet-feed").append(myTweets)
     })
   })
 }
@@ -113,11 +120,11 @@ loadtweets()
     })
   })
   $("#scrollUp").click(function() {
-    $(window).scrollTop(0);
-    $('.new-tweet').slideDown('fast')
+    $('html, body').animate({scrollTop: 0}, 'slow');
+    $('.new-tweet').slideDown('fast');
+  $('#tweet-text').focus()
   })
-
-
+  
 })
 
 
