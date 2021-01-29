@@ -39,7 +39,7 @@ const createTweetElement = function (data) {
 
 $(document).ready(() => {
   const renderTweets = function (tweets) {
-    let output = []
+    let output = [];
     for (let tweet in tweets) {
       output.unshift(createTweetElement(tweets[tweet]));
     };
@@ -49,7 +49,7 @@ $(document).ready(() => {
     event.preventDefault();
     //creating the proper formatting for new tweet
     const renderRecentTweet = function (tweet) {
-      $('.tweet-feed').prepend(createTweetElement(tweet))
+      $('.tweet-feed').prepend(createTweetElement(tweet));
     }
     // loading the most recent tweet
     const loadRecentTweet = function() {
@@ -65,49 +65,46 @@ $(document).ready(() => {
   
   const $queryString = $(this).serialize();
   const value = $(this.children[0]).val().trim(); 
-  $('#errorTooShort').hide()
-  $('#errorTooLong').hide()
+  $('#errorTooShort').hide();
+  $('#errorTooLong').hide();
   if (value.length <= 0) {
-    $('#errorTooShort').slideDown('fast')  
+    $('#errorTooShort').slideDown('fast');  
   } else if (value.length > 140) {
-    $('#errorTooLong').slideDown('fast')
+    $('#errorTooLong').slideDown('fast');
   } else {
-    $('.counter').css('color', '#000645')
+    $('.counter').css('color', '#000645');
     $.post('/tweets', $queryString, function (response) {
     }).done(() => {
-      $('#tweet-text').val('')
+      $('#tweet-text').val('');
       $('.counter').val(140);
       loadRecentTweet() 
     }).fail(error => {
-      console.log(error)
+      console.log(error);
     })
-
-  
   };
-  
 })
 const loadtweets = function () {
   $.get('/tweets', 'string', function (response) {
     let myTweets = renderTweets(response);
     $.get('/tweets', myTweets, function () {
-      $('.tweet-feed').append(myTweets)
+      $('.tweet-feed').append(myTweets);
     })
   })
 }
 loadtweets()    
   $('#tweet-text').focus(function() {
-    $('#errorTooShort').slideUp('fast') 
-    $('#errorTooLong').slideUp('fast')
+    $('#errorTooShort').slideUp('fast');
+    $('#errorTooLong').slideUp('fast');
   })
 
   $('.write').on('click', function() {
-    $('.new-tweet').slideToggle('fast')
+    $('.new-tweet').slideToggle('fast');
     $('#tweet-text').focus();
   })
   $('.write').hover(function() {
-    $('.write-info').css('color', 'black')
+    $('.write-info').css('color', 'black');
   }, function(){
-    $('.write-info').css('color', 'white')
+    $('.write-info').css('color', 'white');
   })
 
   $(function () {
@@ -115,7 +112,7 @@ loadtweets()
     $(window).scroll(function(){
       let size  = $(window).scrollTop();
       if (size >= 100){
-        $('#scrollUp').show()
+        $('#scrollUp').show();
       } else {
         $('#scrollUp').hide();
       }
@@ -124,10 +121,10 @@ loadtweets()
   $('#scrollUp').click(function() {
     $('html, body').animate({scrollTop: 0}, 'slow');
     $('.new-tweet').slideDown('fast');
-  $('#tweet-text').focus()
-  })
+    $('#tweet-text').focus();
+  });
   
-})
+});
 
 
 

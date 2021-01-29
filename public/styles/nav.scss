@@ -7,7 +7,7 @@ nav {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 
   #logo {
     font-family: 'Bungee', cursive;
@@ -17,7 +17,7 @@ nav {
     display: flex;
     flex-direction: column;
   }
-
+  
   #arrow {
     margin-top: 5px;
     color: #56A040;
@@ -42,47 +42,28 @@ nav {
 }
 
 nav:hover {
- animation: bloom ease-in-out 4s both;
- animation-iteration-count: infinite;
+  animation: bloom ease-in-out 4s both;
+  animation-iteration-count: infinite;
 }
 
 @keyframes bloom {
   0% {
     background-color: #4056A1;
   }
-  25%{
+
+  25% {
     background-color: #4097a1;
   }
+
   50% {
     background-color: #40a17f;
   }
+
   75% {
     background-color: #4097a1;
   }
+
   100% {
     background-color: #4056A1;
   }
 }
-// nav:hover::before {
-//   animation: circle .75s;
-// }
-
-// @keyframes circle {
-//   0% {
-//     opacity: .5;
-//     background: rgba(213,156,34,.2);
-    
-//   }
-//   40% {
-//     opacity: 1;
-//     background: rgba(213,34,160,.2);
-//   }
-//   100% {
-//     width: 200%;
-//     height: 200%;
-//     opacity: 0;
-//   }
-// }
-
-
-
