@@ -24,7 +24,7 @@ body {
 
 #container {
   width: 90%;
-  /* margin: auto; */
+  margin: auto;
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -37,7 +37,7 @@ body {
  color: #56A040;
 }
 
-
+ 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

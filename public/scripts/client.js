@@ -64,18 +64,16 @@ $(document).ready(() => {
     }
   
   const $queryString = $(this).serialize();
-  const value = $(this.children[0]).val()
+  const value = $(this.children[0]).val().trim(); 
   $('#errorTooShort').hide()
   $('#errorTooLong').hide()
   if (value.length <= 0) {
-    console.log('here')
     $('#errorTooShort').slideDown('fast')  
   } else if (value.length > 140) {
     $('#errorTooLong').slideDown('fast')
   } else {
     $('.counter').css('color', '#000645')
     $.post('/tweets', $queryString, function (response) {
-      console.log('Working')
     }).done(() => {
       $('#tweet-text').val('')
       $('.counter').val(140);
@@ -97,6 +95,10 @@ const loadtweets = function () {
   })
 }
 loadtweets()    
+  $('#tweet-text').focus(function() {
+    $('#errorTooShort').slideUp('fast') 
+    $('#errorTooLong').slideUp('fast')
+  })
 
   $('.write').on('click', function() {
     $('.new-tweet').slideToggle('fast')
@@ -112,7 +114,6 @@ loadtweets()
     $('#scrollUp').hide();
     $(window).scroll(function(){
       let size  = $(window).scrollTop();
-      console.log(size)
       if (size >= 100){
         $('#scrollUp').show()
       } else {
