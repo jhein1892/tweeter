@@ -11,7 +11,7 @@ const createTweetElement = function (data) {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
     
-  }
+  };
   const markup =
     `<article>
     <header>
@@ -34,90 +34,92 @@ const createTweetElement = function (data) {
     </footer>
   </article>`;
   return markup;
-}
+};
 
 
 $(document).ready(() => {
-  const renderTweets = function (tweets) {
+  const renderTweets = function(tweets) {
     let output = [];
     for (let tweet in tweets) {
       output.unshift(createTweetElement(tweets[tweet]));
-    };
+    }
     return output;
-  }
-  $('.submit-tweet').submit(function (event) {
+  };
+  $('.submit-tweet').submit(function(event) {
     event.preventDefault();
     //creating the proper formatting for new tweet
-    const renderRecentTweet = function (tweet) {
+    const renderRecentTweet = function(tweet) {
       $('.tweet-feed').prepend(createTweetElement(tweet));
-    }
+    };
     // loading the most recent tweet
     const loadRecentTweet = function() {
       $.ajax({
         url: '/tweets',
         method: 'GET'
       })
-      .done((data) => {
-        renderRecentTweet(data[data.length -1]);
-      })
-      .fail(error => console.log(error));
-    }
+        .done((data) => {
+          renderRecentTweet(data[data.length - 1]);
+        })
+        .fail(error => console.log(error));
+    };
   
-  const $queryString = $(this).serialize();
-  const value = $(this.children[0]).val().trim(); 
-  $('#errorTooShort').hide();
-  $('#errorTooLong').hide();
-  if (value.length <= 0) {
-    $('#errorTooShort').slideDown('fast');  
-  } else if (value.length > 140) {
-    $('#errorTooLong').slideDown('fast');
-  } else {
-    $('.counter').css('color', '#000645');
-    $.post('/tweets', $queryString, function (response) {
-    }).done(() => {
-      $('#tweet-text').val('');
-      $('.counter').val(140);
-      loadRecentTweet() 
-    }).fail(error => {
-      console.log(error);
-    })
+    const $queryString = $(this).serialize();
+    const value = $(this.children[0]).val().trim();
+    $('#errorTooShort').hide();
+    $('#errorTooLong').hide();
+    if (value.length <= 0) {
+      $('#errorTooShort').slideDown('fast');
+    } else if (value.length > 140) {
+      $('#errorTooLong').slideDown('fast');
+    } else {
+      $('.counter').css('color', '#000645');
+      $.post('/tweets', $queryString, function(response) {
+      }).done(() => {
+        $('#tweet-text').val('');
+        $('.counter').val(140);
+        loadRecentTweet();
+      }).fail(error => {
+        console.log(error);
+      });
+    }
+  });
+  const loadtweets = function() {
+    $.get('/tweets', 'string', function(response) {
+      let myTweets = renderTweets(response);
+      $.get('/tweets', myTweets, function() {
+        $('.tweet-feed').append(myTweets);
+      });
+    });
   };
-})
-const loadtweets = function () {
-  $.get('/tweets', 'string', function (response) {
-    let myTweets = renderTweets(response);
-    $.get('/tweets', myTweets, function () {
-      $('.tweet-feed').append(myTweets);
-    })
-  })
-}
-loadtweets()    
+  loadtweets();
+
   $('#tweet-text').focus(function() {
     $('#errorTooShort').slideUp('fast');
     $('#errorTooLong').slideUp('fast');
-  })
+  });
 
   $('.write').on('click', function() {
     $('.new-tweet').slideToggle('fast');
     $('#tweet-text').focus();
-  })
+  });
+
   $('.write').hover(function() {
     $('.write-info').css('color', 'black');
-  }, function(){
+  }, function() {
     $('.write-info').css('color', 'white');
-  })
+  });
 
-  $(function () {
+  $(function() {
     $('#scrollUp').hide();
-    $(window).scroll(function(){
+    $(window).scroll(function() {
       let size  = $(window).scrollTop();
-      if (size >= 100){
+      if (size >= 100) {
         $('#scrollUp').show();
       } else {
         $('#scrollUp').hide();
       }
-    })
-  })
+    });
+  });
   $('#scrollUp').click(function() {
     $('html, body').animate({scrollTop: 0}, 'slow');
     $('.new-tweet').slideDown('fast');
@@ -129,4 +131,4 @@ loadtweets()
 
 
 
-// const $tweet = createTweetElement(tweetData) 
+// const $tweet = createTweetElement(tweetData)

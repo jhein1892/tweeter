@@ -32,10 +32,9 @@ form button {
   border-right: none;
   border-bottom: solid black 3px;
   outline: none;
-  height: 34px;
+  height: fit-content;
   resize: none;
-  overflow: auto;
-  
+  overflow-wrap: break-word;
 }
 
 #errorTooLong {
