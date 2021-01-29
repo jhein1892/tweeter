@@ -1,15 +1,20 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone. Responsive on both mobile, tablet and desktop. 
 
-Tweeter allows users to post ananymous tweets with generated users and avatars. 
+Tweeter allows users to post ananymous tweets with generated users and avatars.
 
-## Getting Started
+Some additional features that have been added: 
+- Animated navigation bar
+- Customized background
+- Additional colors included in character count to allow user to see how close they are to the character limit
+- Hidden text box when page is loaded. Bouncy arrow or side arrow to open. 
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+## Final Product
+!["Mobile Rendering"](https://github.com/jhein1892/tweeter/blob/master/docs/mobile_view.png)
+!["Desktop/Tablet Rendering"](https://github.com/jhein1892/tweeter/blob/master/docs/desktop_view.png)
+!["Adding a new Tweet"](https://github.com/jhein1892/tweeter/blob/master/docs/new_tweet_added.png)
+!["Responsive Tweet activation](https://github.com/jhein1892/tweeter/blob/master/docs/responsive_tweet.png)
 
 ## Dependencies
 
@@ -17,3 +22,8 @@ Tweeter allows users to post ananymous tweets with generated users and avatars.
 - Node 5.10.x or above
 - Body Parser
 - Chance
+
+## Getting Started
+
+- Install all dependencies (using the `npm install` command).
+- Run the development web server using the `node express_server.js` command.
