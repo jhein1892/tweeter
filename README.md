@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone. Responsive on both mobile, tablet and desktop. 
 
-Tweeter allows users to post ananymous tweets with generated users and avatars.
+Tweeter allows users to post anonymous tweets with generated users and avatars.
 
 Some additional features that have been added: 
 - Animated navigation bar
